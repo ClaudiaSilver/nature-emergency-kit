@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt&display=swap" rel="stylesheet">
+  <title>Nature Emergency Kit</title>
+  <link rel="stylesheet" href="nature emergency kit.css">
+</head>
+<body>
+  <div class="titlebox">
+    <p class="title">Nature Emergency Kit</p>
+  </div>
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">Babbling brook</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">Snow falling on leaves</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">Rain on the porch</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">Wind in the trees</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">Waves on the shore</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">Wood thrushes singing</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">Swans passing by</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">Water rumbling in a cave</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">Tawny owl calling</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/babblingstream.mp3"></audio>
+  <audio data-key="83" src="sounds/snowonleaves.mp3"></audio>
+  <audio data-key="68" src="sounds/rainonporch.mp3"></audio>
+  <audio data-key="70" src="sounds/windtrees.mp3"></audio>
+  <audio data-key="71" src="sounds/waves.mp3"></audio>
+  <audio data-key="72" src="sounds/woodthrushes.mp3"></audio>
+  <audio data-key="74" src="sounds/swansonbrook.mp3"></audio>
+  <audio data-key="75" src="sounds/waterundergroundcave.mp3"></audio>
+  <audio data-key="76" src="sounds/tawnyowl.mp3"></audio>
+
+  
+<script>
+  function toggleSound(e) {
+    //console.log(audio);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // selects audio element with data-key
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    //const click = document.querySelector();
+    //if(!audio) return; //stops function from running when irrelevant key is pressed
+     if (audio.paused) {
+      audio.currentTime = 0; // rewinds track to the beginning to play it again 
+      audio.play();
+      // console.log(key);
+      key.classList.add('playing'); //same as addclass in jQuery
+      } else {
+        audio.pause();
+        key.classList.remove('playing');
+      }
+  };
+
+  function removeTransition(e) {
+    //console.log(event);
+    if(event.propertyName !== 'transform') return; //transform refers to the CSS property
+    this.classList.remove('playing'); //this refers to 'keys' ie. the context of the function when called  
+  }
+
+  // add an event listener to each key
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('ended', removeTransition));
+  
+  window.addEventListener('keydown',  toggleSound); // the page is listening for a keydown event, when it occurs, playSound is run 
+  
+  
+  
+</script>
+
+
+</body>
+</html>

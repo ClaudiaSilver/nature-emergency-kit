@@ -1,0 +1,77 @@
+html {
+  font-size: 13px;
+  background: url(https://images.unsplash.com/photo-1486707471592-8e7eb7e36f78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=1970&q=80) bottom center;
+  background-size: cover;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family:'Open Sans', sans-serif;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5% 50% 50% 50%;
+  border: .1rem solid white;
+  margin: 1.5rem;
+  padding: .8rem;
+  transition: all 1.07s ease;
+  text-align: center;
+  color: white;
+  
+
+}
+
+.playing {
+  transform: scale(1.1) rotate(45deg);
+  border-color: #819095;
+  box-shadow: 3px 3px 20px 15px	#819095;
+}
+
+kbd {
+  display: block;
+  font-size: 3rem;
+  padding: .5rem;
+  
+}
+
+.sound {
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
+  color: #f79c1d;
+
+
+}
+
+.titlebox {
+  display: flex;
+  flex: 1;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center; 
+}
+
+.title {
+  font-family: 'Rock Salt', cursive;
+  border-radius: 1rem;
+  margin: 1rem;
+  font-size: 3rem;
+  padding: 3rem;
+  width: 50rem;
+  text-align: center;
+  color: white;
+  background: #32343380;
+  text-shadow: 0 0 .5rem #323433;
+}
+
