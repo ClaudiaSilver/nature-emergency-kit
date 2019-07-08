@@ -61,6 +61,7 @@
 
   
 <script>
+
   // main function
   function toggleSound(e) {
     //console.log(audio);
@@ -81,13 +82,16 @@
 
   function removeTransition(e) {
     //console.log(event);
+
     if(event.propertyName !== 'transform') return; // transform refers to the CSS property
     this.classList.remove('playing'); // this refers to 'keys' ie. the context of the function when called  
+
   }
 
   // add an event listener to each key
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('ended', removeTransition));
+
 
   // use mouseclick/touch instead of keydown
   keys.forEach(key => key.addEventListener('click', function(e) { // loop through all .key elements
@@ -98,8 +102,7 @@
   
   window.addEventListener('keydown',  toggleSound); // the page is listening for a keydown event, when it occurs, playSound is run 
   //window.addEventListener('click', toggleSound);
-  
-  
+
   
 </script>
 
