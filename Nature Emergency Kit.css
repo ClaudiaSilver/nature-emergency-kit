@@ -14,7 +14,7 @@ body,html {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
-  min-height: 70vh;
+  min-height: 50vh;
   align-items: center;
   justify-content: center;
 }
